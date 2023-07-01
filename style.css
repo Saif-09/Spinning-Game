@@ -118,10 +118,10 @@ span{
     text-align: center;
 }
 .box2 .span1 h5{
-    font-size: 40px;
+    font-size: 30px;
     position: absolute;
     top: 36%;
-    right:70%;
+    right:67%;
     transform: rotate(200deg);
     text-align: center;
 }
