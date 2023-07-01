@@ -1,3 +1,4 @@
+
 function shuffle(arr){
     var currentIndex = arr.length,
     randomIndex;
@@ -24,6 +25,9 @@ function spin(){
     let HeadSet = shuffle([1750, 2110, 2470]);
     let Drone = shuffle([1630, 1990, 2350]);
     let SmartPhone = shuffle([1570, 1930, 2290]);
+    let SmartTv = shuffle([1235, 1536, 2344]);
+    let Car = shuffle([3678,2111,2654]);
+    let ipad = shuffle([1892, 1998, 1947]);
     
     let results = shuffle([
         AC[0],
@@ -32,7 +36,10 @@ function spin(){
         Bike[0],
         HeadSet[0],
         Drone[0],
-        SmartPhone[0]
+        SmartPhone[0],
+        SmartTv[0],
+        Car[0],
+        ipad[0]
 
     ]);
 
@@ -43,6 +50,11 @@ function spin(){
     if (HeadSet.includes(results[0]))SelectItem ="HEADSET";
     if (Drone.includes(results[0])) SelectItem ="MINI DRONE";
     if (SmartPhone.includes(results[0])) SelectItem ="SMART PHONE";
+    if (SmartTv.includes(results[0])) SelectItem ="SMART TV";
+    if (Car.includes(results[0])) SelectItem ="ELECTRIC CAR";
+    if (ipad.includes(results[0])) SelectItem ="I PAD";
+    
+
 
     box.style.setProperty("transition", "all ease 5s");
     box.style.transform = "rotate(" + results[0] + "deg)";
@@ -52,8 +64,16 @@ function spin(){
     },5000);
 
     setTimeout(function(){
+        Swal.fire({
+            title: 'Congratulations........',
+            html: 'You Won '+ SelectItem + ' | ' + '<a href="#"> Claim Now </a>',
+            imageUrl: './assets/lucky draw logo.png',
+            imageWidth: 400,
+            imageHeight: 300,
+            imageAlt: 'Custom image',
+          })
 
-    })
+    },5500)
 
     setTimeout(function(){
         box.style.setProperty("transition", "initial");
