@@ -1,4 +1,4 @@
-let spinCount = 0;
+let spinCount = 0; // Counter for the number of spins
 
 function shuffle(arr) {
   var currentIndex = arr.length,
@@ -7,11 +7,11 @@ function shuffle(arr) {
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
-    [arr[currentIndex], arr[randomIndex]] = [
-      arr[currentIndex],
-      arr[randomIndex],
-    ];
+
+    // Swap elements to shuffle the array
+    [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
   }
+
   return arr;
 }
 
@@ -24,20 +24,22 @@ function spin() {
   let SelectItem = "";
 
   if (spinCount === 1) {
+    // First spin: Zonk is awarded
     let tryAgain = shuffle([1770, 2130, 2490]);
     SelectItem = "Try Again";
     box.style.setProperty("transition", "all ease 5s");
     box.style.transform = "rotate(" + tryAgain[0] + "deg)";
-    setTimeout(function () {
-    Swal.fire({
-      title: "Sorry...",
-      text: "You lost. Please try again!",
-      icon: "error",
-      });
-    },5500);
-}
 
-   else {
+    // Show "Sorry" message for losing
+    setTimeout(function () {
+      Swal.fire({
+        title: "Sorry...",
+        text: "You lost. Please try again!",
+        icon: "error",
+      });
+    }, 5500);
+  } else {
+    // Subsequent spins: Random prize is awarded
     let prizes = [
       { name: "AIR CONDITIONER", values: shuffle([1890, 2250, 2610]) },
       { name: "SONY CAMERA", values: shuffle([1850, 2210, 2570]) },
@@ -55,25 +57,27 @@ function spin() {
     box.style.setProperty("transition", "all ease 5s");
     box.style.transform = "rotate(" + prize.values[0] + "deg)";
 
+    // Show "Congratulations" message for winning
     setTimeout(function () {
-        Swal.fire({
-          title: "Congratulations........",
-          html: "You Won " + SelectItem + " | " + '<a href="#"> Claim Now </a>',
-          imageUrl: "./assets/lucky draw logo.png",
-          imageWidth: 400,
-          imageHeight: 300,
-          imageAlt: "Custom image",
-        });
-      }, 5500);
+      Swal.fire({
+        title: "Congratulations........",
+        html: "You Won " + SelectItem + " | " + '<a href="#"> Claim Now </a>',
+        imageUrl: "./assets/lucky draw logo.png",
+        imageWidth: 400,
+        imageHeight: 300,
+        imageAlt: "Custom image",
+      });
+    }, 5500);
+  }
 
   element.classList.remove("animate");
   setTimeout(function () {
     element.classList.add("animate");
   }, 5000);
 
+  // Reset the wheel position after spinning
   setTimeout(function () {
     box.style.setProperty("transition", "initial");
     box.style.transform = "rotate(90deg)";
   }, 6000);
-}
 }
