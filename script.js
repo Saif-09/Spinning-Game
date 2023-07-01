@@ -9,7 +9,7 @@ function shuffle(arr) {
     currentIndex--;
     [arr[currentIndex], arr[randomIndex]] = [
       arr[currentIndex],
-      arr[currentIndex],
+      arr[randomIndex],
     ];
   }
   return arr;
