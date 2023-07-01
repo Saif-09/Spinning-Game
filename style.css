@@ -179,6 +179,22 @@ span{
 .mainbox.animate:after{
     animation:animateArrow 0.7s ease infinite;
 }
+footer {
+    background-color: #f8f8f8;
+    padding: 20px;
+    opacity: 20%;
+    user-select: none;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size:30px;
+    color: #000000;
+  }
 audio{
     display: none;
 }
