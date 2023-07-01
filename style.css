@@ -68,7 +68,7 @@ span{
     background-color: rgb(202, 62, 106);
 }
 .box2 .span3{
-    background-color: aquamarine;
+    background-color: rgb(30, 105, 80);
 }
 .box2{
     width: 100%;
@@ -176,6 +176,16 @@ span{
     height: 70px;
     font-size: 20px;
 }
-
+.mainbox.animate:after{
+    animation:animateArrow 0.7s ease infinite;
+}
+audio{
+    display: none;
+}
+@keyframes animateArrow {
+    50%{
+        right:-50px;
+    }
+}
 
 
